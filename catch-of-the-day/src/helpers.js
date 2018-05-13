@@ -5,6 +5,10 @@ export function formatPrice(cents) {
   });
 }
 
+export function getStoreName() {
+  return "Las pelotas";
+}
+
 export function rando(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
