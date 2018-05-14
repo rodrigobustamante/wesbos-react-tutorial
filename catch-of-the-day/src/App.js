@@ -25,7 +25,7 @@ class App extends React.Component {
     const order = { ...this.state.order };
     order[key] = order[key] + 1 || 1;
     this.setState({ order });
-  }
+  };
 
   render() {
     return (
@@ -33,10 +33,17 @@ class App extends React.Component {
         <div className="menu">
           <Header tagline="The Fisherman Restaurant" />
           <ul className="fishes">
-            {Object.keys(this.state.fishes).map(key => <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder} />)}
+            {Object.keys(this.state.fishes).map(key => (
+              <Fish
+                key={key}
+                index={key}
+                details={this.state.fishes[key]}
+                addToOrder={this.addToOrder}
+              />
+            ))}
           </ul>
         </div>
-        <Order />
+        <Order fishes={this.state.fishes} order={this.state.order} />
         <Inventory
           addFish={this.addFish}
           loadSampleFishes={this.loadSampleFishes}
